@@ -14,7 +14,7 @@
 #define MAX_TOKENS 64
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
-void execute_command(char **args);
+int execute_command(char **args);
 char *read_line(void);
 char **split_line(char *line);
 int shell_env(char **args);
