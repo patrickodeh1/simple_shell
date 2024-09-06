@@ -32,8 +32,8 @@ int launch_process(char **args)
 	}
 
 	if (WIFEXITED(status))
-    {
-        return WEXITSTATUS(status);
-    }
-    return 1;
+	{
+		return (WEXITSTATUS(status));
+	}
+	return (1);
 }

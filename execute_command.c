@@ -29,7 +29,7 @@ int execute_command(char **args)
 	else
 	{
 		status = launch_process(args);
-        printf("Command exited with status: %d\n", status);
-        return status;
+		printf("Command exited with status: %d\n", status);
+		return (status);
 	}
 }
