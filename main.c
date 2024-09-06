@@ -22,7 +22,7 @@ int main(void)
 		line = read_line();
 		if (!line)
 		{
-			perror("read_line");
+			free(line);
 			exit(EXIT_FAILURE);
 		}
 
@@ -33,10 +33,10 @@ int main(void)
 			continue;
 		}
 
-		execute_command(args);
+		status = execute_command(args);
 
 		free(line);
 		free(args);
 	}
-	return (0);
+	return (status);
 }
