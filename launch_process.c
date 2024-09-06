@@ -31,5 +31,5 @@ int launch_process(char **args)
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 
-	return (1);
+	return (WIFEXITED(status) ? WEXITSTATUS(status) : 1);
 }
