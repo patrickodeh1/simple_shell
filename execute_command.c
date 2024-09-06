@@ -11,6 +11,8 @@
  */
 int execute_command(char **args)
 {
+	int status;
+
 	if (args[0] == NULL)
 	{
 		return (1);
@@ -26,6 +28,8 @@ int execute_command(char **args)
 	}
 	else
 	{
-		return (launch_process(args));
+		status = launch_process(args);
+        printf("Command exited with status: %d\n", status);
+        return status;
 	}
 }
