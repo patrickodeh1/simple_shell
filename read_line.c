@@ -12,8 +12,7 @@ char *read_line(void)
 	ssize_t characters;
 
 	characters = getline(&line, &bufsize, stdin);
-    if (characters == -1)
-
+	if (characters == -1)
 	{
 		free(line);
 		if (feof(stdin))

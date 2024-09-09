@@ -13,6 +13,7 @@ int process_command(char *line)
 	int status = 1;
 
 	command = strtok(line, "\n");
+
 	while (command != NULL)
 	{
 		while (*command == ' ' || *command == '\t')
@@ -21,10 +22,10 @@ int process_command(char *line)
 		if (*command != '\0')
 		{
 			char **args = split_line(command);
+
 			status = execute_command(args);
 			free(args);
 		}
-		
 		command = strtok(NULL, "\n");
 	}
 
