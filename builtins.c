@@ -31,6 +31,7 @@ int shell_env(char **args)
  */
 int shell_exit(char **args)
 {
-	(void)args;
+	if (args != NULL)
+		free(args);
 	exit(0);
 }
