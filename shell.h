@@ -21,6 +21,6 @@ int shell_env(char **args);
 int shell_exit(char **args);
 int launch_process(char **args);
 extern char **environ;
-
+int process_command(char *line);
 
 #endif /* SHELL_H */

@@ -18,6 +18,7 @@ int main(void)
 /**
  * handle_input - Entry point of the shell program
  */
+
 void handle_input(void)
 {
 	char *line;
@@ -38,41 +39,4 @@ void handle_input(void)
 		status = process_command(line);
 		free(line);
 	}
-}
-
-/**
- * process_command - Entry point of the shell program
- * @line: char
- * Return: 0 on success, or error code on failure
- */
-
-int process_command(char *line)
-{
-	char *command = strtok(line, "\n");
-	char **args;
-	int status = 1;
-
-	while (command != NULL)
-	{
-		while (*command == ' ' || *command == '\t')
-			command++;
-		if (*command == '\0')
-		{
-			command = strtok(NULL, "\n");
-			continue;
-		}
-
-		args = split_line(command);
-		if (!args || !args[0])
-		{
-			free(args);
-			command = strtok(NULL, "\n");
-			continue;
-		}
-
-		status = execute_command(args);
-		free(args);
-		command = strtok(NULL, "\n");
-	}
-	return (status);
 }

@@ -12,10 +12,20 @@ char *read_line(void)
 	ssize_t characters;
 
 	characters = getline(&line, &bufsize, stdin);
-	if (characters == -1)
+    if (characters == -1)
+
 	{
 		free(line);
-		exit(EXIT_FAILURE);
+		if (feof(stdin))
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("read_line");
+			exit(EXIT_FAILURE);
+		}
 	}
+
 	return (line);
 }

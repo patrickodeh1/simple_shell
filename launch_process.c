@@ -16,7 +16,8 @@ int launch_process(char **args)
 	{
 		if (execvp(args[0], args) == -1)
 		{
-			perror("hsh");
+			fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
+			exit(127);
 		}
 		exit(EXIT_FAILURE);
 	}
